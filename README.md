@@ -8,11 +8,13 @@ This utility requires the oci-cli tool and the jq tool.
 
 # Usage
 
+```
 ./create-waf-nsg.sh COMPARTMENT_NAME VCN_NAME NSG_NAME
+```
 
 The script expects COMPARTMENT_NAME and VCN_NAME to be already defined.
 
-If NSG_NAME exists, rules will be appended.
+If NSG_NAME already exists, rules will be appended.
 
 # OCI Cli options
 
@@ -36,6 +38,6 @@ If you see this:
 FileNotFoundError: [Errno 2] No such file or directory: 'services'
 ```
 
-It means that your credentials are incorect, or you have configured an unssuscribed region. Check your authnetication parameters.
+It means that your credentials are incorrect, or you have configured an unsubscribed region. Check your authentication parameters.
 
 Oracle PLS fix... meaningful messages would be nice.
