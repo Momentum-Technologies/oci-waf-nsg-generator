@@ -1,0 +1,19 @@
+[
+    {
+        "description": "From WAF endpoint __ENDPOINT_CIDR__ allow http",
+        "direction": "INGRESS",
+        "icmp-options": null,
+        "is-stateless": true,
+        "protocol": "6",
+        "source": "__ENDPOINT_CIDR__",
+        "source-type": "CIDR_BLOCK",
+        "tcp-options": {
+            "destination-port-range": {
+                "max": 80,
+                "min": 80
+            },
+            "source-port-range": null
+        },
+        "udp-options": null
+    }
+]
