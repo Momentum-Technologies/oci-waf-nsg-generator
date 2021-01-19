@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+# Oracle Cloud WAF Security Group Generator
 
-You can use the [editor on GitHub](https://github.com/Momentum-Technologies/oci-waf-nsg-generator/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This tool is aimed at automating a Network Security Group creation that allows connections from the Oracle WAF.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Requirements
 
-### Markdown
+This utility requires the oci-cli tool and the jq tool.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Usage
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+./create-waf-nsg.sh COMPARTMENT_NAME VCN_NAME NSG_NAME
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The script expects COMPARTMENT_NAME and VCN_NAME to be already defined.
 
-### Jekyll Themes
+If NSG_NAME already exists, rules will be appended.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Momentum-Technologies/oci-waf-nsg-generator/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# OCI Cli options
 
-### Support or Contact
+You can pass options to the OCI cli utility by setting OCI_CLI_OPTS variable.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+export OCI_CLI_OPTS="--config-file=path/to/config.file"
+
+# Troubleshoot
+
+If you see this:
+
+```
+Error: Missing option(s) --compartment-id.
+```
+
+The oci-cli configuration file is not found or invalid.
+
+If you see this:
+
+```
+FileNotFoundError: [Errno 2] No such file or directory: 'services'
+```
+
+It means that your credentials are incorrect, or you have configured an unsubscribed region. Check your authentication parameters.
+
+Oracle PLS fix... meaningful messages would be nice.
