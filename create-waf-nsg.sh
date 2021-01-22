@@ -26,7 +26,7 @@ OCI_CMD="oci ${OCI_CLI_OPTS}"
 export COMPARTMENT_ID=$(${OCI_CMD} iam compartment list --all --access-level ACCESSIBLE | jq -r ".data[] | select( .name == "env.compartment_name" ).id")
 
 if [ -z "${COMPARTMENT_ID}" ]; then
-    echo "Comportment ${compartment_name} not found."
+    echo "Compartment ${compartment_name} not found."
     exit 1
 fi
 
