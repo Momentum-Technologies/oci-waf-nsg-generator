@@ -1,4 +1,6 @@
-# Oracle Cloud WAF Security Group Generator
+# DEPRECATED - Oracle Cloud WAF Security Group Generator
+
+NOTICE: Oracle dropped this WAF implementation, leaving code as example.
 
 This tool is aimed at automating a Network Security Group creation that allows connections from the Oracle WAF.
 
